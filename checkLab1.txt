@@ -1,0 +1,3 @@
+https://www.mathpapa.com/algebra-calculator.html?q=sqrt(xy%5E2%2By%5Csin(x)%2B142x%5E2y)%2B%5Ctan(xy)-(142(y-x))%2F16.32
+
+https://www.wolframalpha.com/input/?i=sqrt%28xy%5E2%2By*sin%28x%29%2B142*x%5E2*y%29%2Btan%28x*y%29-%28142*%28y-x%29%29%2F16.32%2C+x%3D0.712%2C+y%3D3.161
