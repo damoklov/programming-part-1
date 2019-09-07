@@ -28,6 +28,10 @@
 *.so.*
 *.dylib
 
+#CLion objects
+.idea/
+cmake-build-*/
+
 # Executables
 *.exe
 *.out
