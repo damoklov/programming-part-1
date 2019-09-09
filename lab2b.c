@@ -19,13 +19,16 @@ int main()
     printf("Enter value of deviation: ");
     scanf("%lf", &d);
     x = a; // set x to the beginning of an interval
+    double current = compute(x, n);
 
-    while (a <= x && x <= b)
+    while (a <= x && x <= b && fabs(current - compute(x, n)) < d)
     {
-        sum -= compute(x, n);
+        // first, we check the borders, and then the value of deviation
+        sum -= current;
         printf("Sum = %lf\nn = %d\n", sum, n);
         n++;
         x += h;
+        current = compute(x, n); // compute next step of the row
     }
     printf("The resulting sum is: %.10lf\n", sum);
 
