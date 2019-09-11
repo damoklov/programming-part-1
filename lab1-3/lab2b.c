@@ -6,9 +6,9 @@ double compute(double, int);
 
 int main()
 {
-    double x, h, a, b, d, sum = 0;
+    double x, h, a, b, d, current, sum = 0.0;
     int n = 1;
-    // h = step, a = start of an interval, b = end of an interval, d = deviation
+    /* h = step, a = start of an interval, b = end of an interval, d = deviation, x = user's value */
 
     printf("Enter the beginning of an interval: ");
     scanf("%lf", &a);
@@ -19,19 +19,21 @@ int main()
     printf("Enter value of deviation: ");
     scanf("%lf", &d);
     x = a; // set x to the beginning of an interval
-    double current = compute(x, n);
 
-    while (a <= x && x <= b && fabs(current - compute(x, n)) < d)
+    while (a <= x && x <= b)
     {
         // first, we check the borders, and then the value of deviation
-        sum -= current;
-        printf("Sum = %lf\nn = %d\n", sum, n);
-        n++;
-        x += h;
-        current = compute(x, n); // compute next step of the row
-    }
-    printf("The resulting sum is: %.10lf\n", sum);
+        do{
+            current = compute(x, n); // compute next step of the row
+            sum -= current;
+            n++;
+        } while(fabs(current) > d);
 
+        printf("x = %.2lf | y = %.5lf\n", x, sum);
+        sum = 0.0; // set new value for sum
+        x += h;
+        n = 1; // set n to the beginning again
+    }
     return 0;
 }
 
