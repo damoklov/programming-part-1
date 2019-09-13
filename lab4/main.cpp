@@ -15,8 +15,8 @@ int main()
     {
         cout << "Information about camera #" << i+1 << ": " << endl;
         cout << "Manufacturer: " << cameras[i]->getManufacturer() << endl;
-        cout << "Model: " << cameras[i]->model << endl;
-        cout << "Price: $" << cameras[i]->price << endl;
+        cout << "Model: " << cameras[i]->getModel() << endl;
+        cout << "Price: $" << cameras[i]->getPrice() << endl;
         cout << "Zoom level: " << cameras[i]->getZoom() << endl;
         cout << "Storage (MiB): " << cameras[i]->getStorage() << endl;
         cout << "Warranty (years): " << cameras[i]->getWarranty() << endl;

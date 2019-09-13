@@ -15,6 +15,14 @@ Camera::Camera(string iManufacturer, int iStorage, int iPrice, string iModel, do
     warranty = iWarranty; // warranty service (in years)
     flash = iFlash;
 };
+Camera::Camera()
+{
+    cout << "Constructor was called" << endl;
+};
+Camera::~Camera()
+{
+    cout << "Destructor was called" << endl;
+};
 int Camera::getWarranty()
 {
   return warranty;
@@ -35,4 +43,11 @@ int Camera::getStorage()
 {
     return storage;
 };
-
+string Camera::getModel()
+{
+    return model;
+};
+int Camera::getPrice()
+{
+    return price;
+};
