@@ -26,3 +26,5 @@ public:
     int getWarranty();
     bool getFlash();
 };
+
+string convert(bool);

@@ -3,8 +3,6 @@
 using namespace std;
 
 
-string convert(bool);
-
 Camera::Camera(string iManufacturer, int iStorage, int iPrice, string iModel, double iZoom, int iWarranty, bool iFlash)
 {
     zoom = iZoom;
