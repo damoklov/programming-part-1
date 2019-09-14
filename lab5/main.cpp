@@ -8,8 +8,9 @@ int main()
     InputMatrix(b);
     Sort(b);
     OutputMatrix(b);
-    Vector::getSumAboveDiagonal(b);
-    cout << Vector::geometricAverage(b, b->product) << endl;
+    b->getSumAboveDiagonal();
+    double geometricAverage = b->geometricAverage();
+    cout <<  geometricAverage << endl;
     return 0;
 }
 

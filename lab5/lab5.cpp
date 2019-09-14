@@ -2,13 +2,13 @@
 using namespace std;
 
 
-double Vector::geometricAverage(Vector A[], int product)
+double Vector::geometricAverage()
 {
-    double result = pow(product, 1.0/(ROWS-1));
+    double result = pow(this->product, 1.0/(ROWS-1));
     return result;
 }
 
-int Vector::getSumAboveDiagonal(Vector A[])
+int Vector::getSumAboveDiagonal()
 {
     int sum = 0;
 
@@ -18,11 +18,11 @@ int Vector::getSumAboveDiagonal(Vector A[])
         {
             if (i < j)
             {
-                sum += A[i].V[j];
+                sum += this[i].V[j];
             }
         }
         printf("Step %d | %d\n", i+1, sum);
-        A->product *= sum;
+        this->product *= sum;
         sum = 0;
     }
     return sum;

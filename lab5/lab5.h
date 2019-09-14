@@ -15,6 +15,6 @@ public:
     friend void InputMatrix(Vector A[]);
     friend void OutputMatrix(Vector A[]);
     friend void Sort(Vector A[]);
-    static int getSumAboveDiagonal(Vector A[]);
-    static double geometricAverage(Vector A[], int product);
+    int getSumAboveDiagonal();
+    double geometricAverage();
 };
