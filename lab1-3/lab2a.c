@@ -19,15 +19,15 @@ int main()
     {
         if (x < 1)
         {
-            printf("x = %.3lf | y = %.5lf\n", x, atan(1/x));
+            printf("x = %.1lf | y = %.5lf\n", x, atan(1/x));
         }
         else if (1 <= x && x < 3)
         {
-            printf("x = %.3lf | y = %.5lf\n", x, tan(x + log10(x)/log10(4)));
+            printf("x = %.1lf | y = %.5lf\n", x, tan(x + log10(x)/log10(4)));
         }
         else if (x >= 3)
         {
-            printf("x = %.3lf | y = %lf.5\n", x, 1 / (1 + log(x)));
+            printf("x = %.1lf | y = %lf.5\n", x, 1 / (1 + log(x)));
         }
         else break;
         x += h;
