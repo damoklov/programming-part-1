@@ -86,7 +86,7 @@ double processMatrix(int arr[COL][ROW])
         sum += prod;
         counter++;
     }
-    average = prod/(counter-1);
+    average = sum/(counter-1);
     printf("Average value is: %lf\n", average);
     return 0;
 }
