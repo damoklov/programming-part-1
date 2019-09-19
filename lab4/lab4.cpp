@@ -24,9 +24,8 @@ Camera::Camera()
     flash = false;
 };
 Camera::~Camera()
-{
-    delete this;
-};
+= default;;
+
 int Camera::getWarranty()
 {
   return warranty;
