@@ -15,11 +15,17 @@ Camera::Camera(string iManufacturer, int iStorage, int iPrice, string iModel, do
 };
 Camera::Camera()
 {
-    cout << "Constructor was called" << endl;
+    zoom = 0.0;
+    manufacturer = "N/A";
+    storage = 0;
+    price = 0.0;
+    model = "N/A";
+    warranty = 0;
+    flash = false;
 };
 Camera::~Camera()
 {
-    cout << "Destructor was called" << endl;
+    delete this;
 };
 int Camera::getWarranty()
 {
