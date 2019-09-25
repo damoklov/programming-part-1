@@ -14,7 +14,9 @@ public:
     int product = 1;
     friend void InputMatrix(Vector A[]);
     friend void OutputMatrix(Vector A[]);
-    friend void Sort(Vector A[]);
+    static void mergeSort(int *, int, int);
+    static void merge(int *, int, int, int);
+    void Sort();
     int getSumAboveDiagonal();
     double geometricAverage();
 };

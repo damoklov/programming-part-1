@@ -52,22 +52,82 @@ void OutputMatrix(Vector A[])
     }
 }
 
-void Sort(Vector A[])
+void Vector::Sort()
 {
-    int value;
-    for (int k = 0; k < COLS; k++)
+    int arr[5];
+    for (int j = 0; j < COLS; j++)
     {
-        for (int i = 0; i < ROWS - 1; i++)
+        for (int i = 0; i < ROWS; i++)
         {
-            for (int j = ROWS - 1; j >= i + 1; j--)
-            {
-                if (A[j].V[k] < A[j - 1].V[k])
-                {
-                    value = A[j].V[k];
-                    A[j].V[k] = A[j - 1].V[k];
-                    A[j - 1].V[k] = value;
-                }
-            }
+            arr[i] = this[i].V[j];
         }
+
+        mergeSort(arr, 0, ROWS-1);
+
+        for (int i = 0; i < ROWS; i++)
+        {
+            this[i].V[j] = arr[i];
+        }
+
+    }
+}
+
+void Vector::merge(int arr[], int l, int m, int r)
+{
+    int i, j;
+    int size1 = m - l + 1;
+    int size2 = r - m;
+    int left[size1], right[size2];
+
+    for (i = 0; i < size1; i++)
+        left[i] = arr[l + i];
+    for (j = 0; j < size2; j++)
+        right[j] = arr[m + 1 + j];
+
+    i = 0;
+    j = 0;
+
+    int k = l;
+
+    while (i < size1 && j < size2)
+    {
+        if (left[i] <= right[j])
+        {
+            arr[k] = left[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = right[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < size1)
+    {
+        arr[k] = left[i];
+        i++;
+        k++;
+    }
+
+    while (j < size2)
+    {
+        arr[k] = right[j];
+        j++;
+        k++;
+    }
+}
+
+void Vector::mergeSort(int arr[5], int leftIndex, int rightIndex)
+{
+    if (leftIndex < rightIndex)
+    {
+        int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
+
+        mergeSort(arr, leftIndex, middleIndex);
+        mergeSort(arr, middleIndex + 1, rightIndex);
+
+        merge(arr, leftIndex, middleIndex, rightIndex);
     }
 }

@@ -6,7 +6,7 @@ int main()
 {
     Vector b[5];
     InputMatrix(b);
-    Sort(b);
+    b->Sort();
     OutputMatrix(b);
     b->getSumAboveDiagonal();
     double geometricAverage = b->geometricAverage();
