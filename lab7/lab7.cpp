@@ -1,7 +1,7 @@
 #include "lab7.h"
 
 
-//ADT helper class
+////ADT helper class
 int ADT::getCapacity() {}
 int ADT::getChannels() {}
 int ADT::getPowerConsumption() {}
@@ -14,36 +14,59 @@ void ADT::setChannels(int) {}
 void ADT::setFavSong(string) {}
 void ADT::setFrequency(double) {}
 void ADT::setSpeakers(int) {}
-
-// HouseholdAppliance class
-void HouseholdAppliance::setName(string iName)
-{
-    this->name = iName;
-}
-void HouseholdAppliance::setLocation(string iLocation)
-{
-    this->location = iLocation;
-}
-void HouseholdAppliance::setPrice(double iPrice)
-{
-    this->price = iPrice;
-}
-string HouseholdAppliance::getName()
+void ADT::special() {};
+string ADT::getName()
 {
     return name;
 }
-string HouseholdAppliance::getLocation()
+string ADT::getLocation()
 {
     return location;
 }
-double HouseholdAppliance::getPrice()
+double ADT::getPrice()
 {
     return price;
 }
+void ADT::setName(string iName)
+{
+    this->name = iName;
+}
+void ADT::setLocation(string iLocation)
+{
+this->location = iLocation;
+}
+void ADT::setPrice(double iPrice)
+{
+    this->price = iPrice;
+}
+
 void HouseholdAppliance::special()
 {
     cout << "I am an item in your house" << endl;
 }
+
+void HouseholdAppliance::setPower(double iPower)
+{
+    this->power = iPower;
+}
+double HouseholdAppliance::getPower()
+{
+    return power;
+}
+
+void Media::setQuality(double iQuality)
+{
+    this->quality = iQuality;
+}
+double Media::getQuality()
+{
+    return quality;
+}
+void Media::special()
+{
+    cout << "I am a music item in your house" << endl;
+}
+
 //WashingMachine class
 void WashingMachine::special()
 {

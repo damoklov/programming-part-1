@@ -12,7 +12,7 @@ int main()
     Radio radio;
     MusicCenter musicCenter;
 
-    HouseholdAppliance * items[6] = {&washingMachine, &vacuumCleaner,
+    ADT * items[6] = {&washingMachine, &vacuumCleaner,
                                    &tv, &audio, &radio, &musicCenter};
     string names[6] = {"Washing machine", "Vacuum cleaner",
                        "TV", "Audio system", "Radio", "Music center"};

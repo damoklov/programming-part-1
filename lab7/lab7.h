@@ -6,10 +6,14 @@ using namespace std;
 class ADT
 {
 public:
+    string name;
+    string location;
+    double price = 0.0;
     virtual int getCapacity();
     virtual int getPowerConsumption();
     virtual int getChannels();
     virtual string getFavSong();
+    virtual void special();
     virtual double getFrequency();
     virtual int getSpeakers();
     virtual void setCapacity(int);
@@ -18,22 +22,31 @@ public:
     virtual void setFavSong(string);
     virtual void setFrequency(double);
     virtual void setSpeakers(int);
+    string getName();
+    string getLocation();
+    double getPrice();
+    void setName(string);
+    void setLocation(string);
+    void setPrice(double);
 };
 
 class HouseholdAppliance: public ADT
 {
 protected:
-    string name;
-    string location;
-    double price = 0.0;
+    double power = 0.0;
 public:
-    virtual void special();
-    void setName(string);
-    void setLocation(string);
-    void setPrice(double);
-    string getName();
-    string getLocation();
-    double getPrice();
+    void special() override;
+    void setPower(double);
+    double getPower();
+};
+class Media: public ADT
+{
+protected:
+    double quality = 0.0;
+public:
+    void special() override;
+    void setQuality(double);
+    double getQuality();
 };
 class WashingMachine: public HouseholdAppliance
 {
@@ -59,7 +72,7 @@ public:
     void setChannels(int);
     int getChannels();
 };
-class Audio: public HouseholdAppliance
+class Audio: public Media
 {
 public:
     string favSong;
@@ -67,7 +80,7 @@ public:
     void setFavSong(string);
     string getFavSong();
 };
-class Radio: public HouseholdAppliance
+class Radio: public Media
 {
 public:
     double frequency = 0.0;
@@ -75,7 +88,7 @@ public:
     void setFrequency(double);
     double getFrequency();
 };
-class MusicCenter: public HouseholdAppliance
+class MusicCenter: public Media
 {
 public:
     int speakers = 0;
