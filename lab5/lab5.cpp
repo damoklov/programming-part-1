@@ -77,7 +77,8 @@ void Vector::merge(int arr[], int l, int m, int r)
     int i, j;
     int size1 = m - l + 1;
     int size2 = r - m;
-    int left[size1], right[size2];
+    int* left = new int[size1];
+    int* right = new int[size2];
 
     for (i = 0; i < size1; i++)
         left[i] = arr[l + i];
