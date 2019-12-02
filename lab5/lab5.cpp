@@ -12,13 +12,13 @@ int Vector::getSumAboveDiagonal()
 {
     int sum = 0;
 
-    for(int i=0; i<COLS-1; i++)
+    for(int i=0; i < COLUMNS - 1; i++)
     {
         for(int j=0; j<ROWS; j++)
         {
             if (i < j)
             {
-                sum += this[i].V[j];
+                sum += this[i].sequenceContainer[j];
             }
         }
         printf("Step %d | %d\n", i+1, sum);
@@ -28,107 +28,105 @@ int Vector::getSumAboveDiagonal()
     return sum;
 }
 
-void InputMatrix(Vector A[])
+void inputMatrix(Vector matrix[])
 {
-    for (int i = 0; i < COLS; i++)
+    for (int i = 0; i < COLUMNS; i++)
     {
         for (int j = 0; j < ROWS; j++)
         {
             cout << "[" << i << "][" << j << "] = ";
-            cin >> A[i].V[j];
+            cin >> matrix[i].sequenceContainer[j];
         }
     }
 }
 
-void OutputMatrix(Vector A[])
+void outputMatrix(Vector matrix[])
 {
-    for(int i = 0; i < COLS; i++)
+    for(int i = 0; i < COLUMNS; i++)
     {
         for(int j = 0; j < ROWS; j++)
         {
-            cout << setw(5) << A[i].V[j] << " ";
+            cout << setw(5) << matrix[i].sequenceContainer[j] << " ";
         }
         cout << endl;
     }
 }
 
-void Vector::Sort()
+void Vector::sortColumnsAscendingOrder()
 {
-    int arr[5];
-    for (int j = 0; j < COLS; j++)
+    int array[SIZE];
+    for (int j = 0; j < COLUMNS; j++)
     {
         for (int i = 0; i < ROWS; i++)
         {
-            arr[i] = this[i].V[j];
+            array[i] = this[i].sequenceContainer[j];
         }
 
-        mergeSort(arr, 0, ROWS-1);
+        mergeSortColumnsAscending(array, 0, ROWS - 1);
 
         for (int i = 0; i < ROWS; i++)
         {
-            this[i].V[j] = arr[i];
+            this[i].sequenceContainer[j] = array[i];
         }
-
     }
 }
 
-void Vector::merge(int arr[], int l, int m, int r)
+void Vector::merge(int array[], int left, int middle, int right)
 {
     int i, j;
-    int size1 = m - l + 1;
-    int size2 = r - m;
-    int* left = new int[size1];
-    int* right = new int[size2];
+    int leftSize = middle - left + 1;
+    int rightSize = right - middle;
+    int* leftSide = new int[leftSize];
+    int* rightSide = new int[rightSize];
 
-    for (i = 0; i < size1; i++)
-        left[i] = arr[l + i];
-    for (j = 0; j < size2; j++)
-        right[j] = arr[m + 1 + j];
+    for (i = 0; i < leftSize; i++)
+        leftSide[i] = array[left + i];
+    for (j = 0; j < rightSize; j++)
+        rightSide[j] = array[middle + 1 + j];
 
     i = 0;
     j = 0;
 
-    int k = l;
+    int k = left;
 
-    while (i < size1 && j < size2)
+    while (i < leftSize && j < rightSize)
     {
-        if (left[i] <= right[j])
+        if (leftSide[i] <= rightSide[j])
         {
-            arr[k] = left[i];
+            array[k] = leftSide[i];
             i++;
         }
         else
         {
-            arr[k] = right[j];
+            array[k] = rightSide[j];
             j++;
         }
         k++;
     }
 
-    while (i < size1)
+    while (i < leftSize)
     {
-        arr[k] = left[i];
+        array[k] = leftSide[i];
         i++;
         k++;
     }
 
-    while (j < size2)
+    while (j < rightSize)
     {
-        arr[k] = right[j];
+        array[k] = rightSide[j];
         j++;
         k++;
     }
 }
 
-void Vector::mergeSort(int arr[5], int leftIndex, int rightIndex)
+void Vector::mergeSortColumnsAscending(int arr[SIZE], int leftIndex, int rightIndex)
 {
     if (leftIndex < rightIndex)
     {
         int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
 
-        mergeSort(arr, leftIndex, middleIndex);
-        mergeSort(arr, middleIndex + 1, rightIndex);
-
+        mergeSortColumnsAscending(arr, leftIndex, middleIndex);
+        mergeSortColumnsAscending(arr, middleIndex + 1, rightIndex);
         merge(arr, leftIndex, middleIndex, rightIndex);
     }
 }

@@ -5,9 +5,9 @@ using namespace std;
 int main()
 {
     Vector b[5];
-    InputMatrix(b);
-    b->Sort();
-    OutputMatrix(b);
+    inputMatrix(b);
+    b->sortColumnsAscendingOrder();
+    outputMatrix(b);
     b->getSumAboveDiagonal();
     double geometricAverage = b->geometricAverage();
     cout <<  geometricAverage << endl;

@@ -2,21 +2,22 @@
 #include <iomanip>
 #include <cmath>
 #define ROWS 5
-#define COLS 5
+#define COLUMNS 5
+#define SIZE 5
 using namespace std;
 
 
 class Vector
 {
 private:
-    int V[ROWS]{};
+    int sequenceContainer[ROWS]{};
 public:
     int product = 1;
-    friend void InputMatrix(Vector A[]);
-    friend void OutputMatrix(Vector A[]);
-    static void mergeSort(int *, int, int);
+    friend void inputMatrix(Vector *);
+    friend void outputMatrix(Vector *);
+    static void mergeSortColumnsAscending(int *, int, int);
     static void merge(int *, int, int, int);
-    void Sort();
+    void sortColumnsAscendingOrder();
     int getSumAboveDiagonal();
     double geometricAverage();
 };
