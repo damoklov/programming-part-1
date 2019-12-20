@@ -28,25 +28,25 @@ int Vector::getSumAboveDiagonal()
     return sum;
 }
 
-void inputMatrix(Vector matrix[])
+void inputMatrix(Vector vector[])
 {
     for (int i = 0; i < COLUMNS; i++)
     {
         for (int j = 0; j < ROWS; j++)
         {
             cout << "[" << i << "][" << j << "] = ";
-            cin >> matrix[i].sequenceContainer[j];
+            cin >> vector[i].sequenceContainer[j];
         }
     }
 }
 
-void outputMatrix(Vector matrix[])
+void outputMatrix(Vector vector[])
 {
     for(int i = 0; i < COLUMNS; i++)
     {
         for(int j = 0; j < ROWS; j++)
         {
-            cout << setw(5) << matrix[i].sequenceContainer[j] << " ";
+            cout << setw(5) << vector[i].sequenceContainer[j] << " ";
         }
         cout << endl;
     }
